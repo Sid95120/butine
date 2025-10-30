@@ -1,9 +1,3 @@
-"use client";
-/**
- * Vibzz — v1.0 (2025-10-30)
- * Changement de marque Butine -> Vibzz.
- * Ce bloc sert d’ancre de version pour rollback si besoin.
- */
 import React, { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -156,7 +150,7 @@ function ProductCard({ p }: { p: typeof products[number] }) {
         </div>
         <div className="font-medium flex items-center justify-between">
           <span>{p.title}</span>
-          <Badge variant="secondary" title="Avantage Vibzz (points fidelite)">+{earnPts} pts</Badge>
+          <Badge variant="secondary" title="Avantage Butine (points fidelite)">+{earnPts} pts</Badge>
         </div>
         <div className="flex items-center justify-between">
           <Badge className="bg-amber-100 text-amber-900">{p.variety}</Badge>
@@ -285,7 +279,7 @@ function ScreenCartCheckout() {
             </Select>
           </div>
           <div className="border rounded-xl p-3 bg-amber-50/50">
-            <div className="text-sm font-medium">Fidelite Vibzz</div>
+            <div className="text-sm font-medium">Fidelite Butine</div>
             <div className="text-xs text-muted-foreground">Solde: <strong>{loyaltyState.balance} pts</strong> · Vous gagnerez <strong>+{earnPts} pts</strong> sur cette commande.</div>
             <div className="text-xs text-muted-foreground">{canRedeem ? `Vous pouvez utiliser jusqu'a ${redeemEuro} € en points.` : `Vous cumulez des points a chaque commande.`}</div>
           </div>
@@ -384,7 +378,7 @@ function ScreenPickupTicket() {
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="aspect-square rounded-xl bg-amber-50 flex items-center justify-center">
-            <div className="text-2xl font-mono">VIBZZ-3F9K2</div>
+            <div className="text-2xl font-mono">BUTINE-3F9K2</div>
           </div>
           <div className="text-sm text-muted-foreground">
             Presentez ce code au producteur. Creneau: <strong>Mercredi 18:00-20:00</strong> - Rucher des Coteaux, Ermont.
@@ -467,8 +461,8 @@ function ScreenPolicies() {
         <CardHeader><CardTitle>Garanties & CGU - Rappel</CardTitle></CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <ul className="list-disc pl-5 space-y-1">
-            <li>Protection achat Vibzz: SAV simple si pot fele (commandes passees dans l'app).</li>
-            <li>Remises fidelite applicables uniquement aux commandes Vibzz.</li>
+            <li>Protection achat Butine: SAV simple si pot fele (commandes passees dans l'app).</li>
+            <li>Remises fidelite applicables uniquement aux commandes Butine.</li>
             <li>Les coordonnees sont masquees: echange via tchat in-app; garanties valables sur commandes validees (QR scanne).</li>
             <li>Les avantages logistiques (points relais negocies) s'appliquent aux commandes tracees dans l'app.</li>
           </ul>
@@ -634,7 +628,7 @@ export default function ButineWireframes() {
     </button>
     <div className="h-7 w-7 rounded-md bg-amber-400" />
     <div>
-      <div className="text-sm text-neutral-500">Vibzz - Console</div>
+      <div className="text-sm text-neutral-500">Butine - Console</div>
       <div className="font-semibold leading-4">Du rucher a votre table</div>
     </div>
   </div>
@@ -644,7 +638,7 @@ export default function ButineWireframes() {
   </div>
 </header>
 
-        <Tabs defaultValue="home" className="w-full" orientation="vertical">
+        <Tabs defaultValue="home" className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] items-start gap-4 overflow-visible relative">
   {/* MOBILE OVERLAY */}
   {openNav && <div className="fixed inset-0 z-40 bg-black/30 md:hidden" onClick={() => setOpenNav(false)} />}
@@ -655,31 +649,31 @@ export default function ButineWireframes() {
       <CardHeader className="pb-1"><CardTitle className="text-sm uppercase tracking-wide text-neutral-500">Menu</CardTitle></CardHeader>
       <CardContent className="pt-0">
         {/* Section: Clients */}
-        <TabsList className="flex flex-col items-stretch w-full bg-transparent p-1 gap-1 h-auto">
+        <TabsList className="flex flex-col items-stretch w-full bg-transparent p-1 gap-1">
           <TabsTrigger value="home" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Leaf className="h-4 w-4"/><span className="truncate">Accueil / Recherche</span></span>
           </TabsTrigger>
           <TabsTrigger value="checkout" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><ShoppingCart className="h-4 w-4"/><span className="truncate">Panier & Paiement</span></span>
           </TabsTrigger>
           <TabsTrigger value="ticket" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><QrCode className="h-4 w-4"/><span className="truncate">Ticket retrait</span></span>
           </TabsTrigger>
           <TabsTrigger value="relays" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><MapPin className="h-4 w-4"/><span className="truncate">Points relais</span></span>
             <Badge className="shrink-0 h-5 px-2 text-[11px]">2</Badge>
           </TabsTrigger>
           <TabsTrigger value="loyalty" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Star className="h-4 w-4"/><span className="truncate">Fidelite</span></span>
             <Badge variant="secondary" className="shrink-0 h-5 px-2 text-[11px]">Nouveau</Badge>
           </TabsTrigger>
           <TabsTrigger value="policies" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><CheckCircle2 className="h-4 w-4"/><span className="truncate">Garanties (CGU)</span></span>
             <Badge variant="secondary" className="shrink-0 h-5 px-2 text-[11px]">Info</Badge>
           </TabsTrigger>
@@ -691,14 +685,14 @@ export default function ButineWireframes() {
         <div className="px-3 pb-1 text-[11px] uppercase tracking-wide text-neutral-500">Pro</div>
 
         {/* Section: Pro (au bas du menu) */}
-        <TabsList className="flex flex-col items-stretch w-full bg-transparent p-1 gap-1 h-auto">
+        <TabsList className="flex flex-col items-stretch w-full bg-transparent p-1 gap-1">
           <TabsTrigger value="seller" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none data-[state=active]:bg-amber-100 data-[state=active]:text-amber-900 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Package className="h-4 w-4"/><span className="truncate">Vendre mon miel</span></span>
             <Badge variant="secondary" className="shrink-0 h-5 px-2 text-[11px]">Pro</Badge>
           </TabsTrigger>
           <TabsTrigger value="tests" onClick={() => setOpenNav(false)}
-            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none text-neutral-700 hover:bg-amber-50">
+            className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none text-neutral-700 hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Leaf className="h-4 w-4 rotate-90"/><span className="truncate">Tests</span></span>
           </TabsTrigger>
         </TabsList>
@@ -707,21 +701,21 @@ export default function ButineWireframes() {
         <div className="px-3 pb-1 text-[11px] uppercase tracking-wide text-neutral-500">Admin</div>
 
         {/* Section: Admin */}
-        <TabsList className="flex flex-col items-stretch w-full bg-transparent p-1 gap-1 h-auto">
-          <TabsTrigger value="admin" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none hover:bg-amber-50">
+        <TabsList className="flex flex-col items-stretch w-full bg-transparent p-1 gap-1">
+          <TabsTrigger value="admin" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Shield className="h-4 w-4"/><span className="truncate">Tableau de bord</span></span>
             <Badge className="shrink-0 h-5 px-2 text-[11px]">Admin</Badge>
           </TabsTrigger>
-          <TabsTrigger value="admin-orders" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none hover:bg-amber-50">
+          <TabsTrigger value="admin-orders" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><ListChecks className="h-4 w-4"/><span className="truncate">Commandes</span></span>
           </TabsTrigger>
-          <TabsTrigger value="admin-producers" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none hover:bg-amber-50">
+          <TabsTrigger value="admin-producers" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Store className="h-4 w-4"/><span className="truncate">Apiculteurs</span></span>
           </TabsTrigger>
-          <TabsTrigger value="admin-customers" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none hover:bg-amber-50">
+          <TabsTrigger value="admin-customers" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Users className="h-4 w-4"/><span className="truncate">Clients</span></span>
           </TabsTrigger>
-          <TabsTrigger value="admin-settings" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 whitespace-nowrap overflow-hidden leading-none hover:bg-amber-50">
+          <TabsTrigger value="admin-settings" onClick={() => setOpenNav(false)} className="inline-flex items-center justify-between w-full rounded-md h-10 px-3 text-sm font-medium gap-2 leading-none hover:bg-amber-50">
             <span className="flex items-center gap-2 min-w-0"><Settings className="h-4 w-4"/><span className="truncate">Parametres</span></span>
           </TabsTrigger>
         </TabsList>
