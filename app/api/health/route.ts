@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
 export async function GET() {
-  const hasUrl = !!process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const hasKey = !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  return NextResponse.json({
-    ok: hasUrl && hasKey,
-    NEXT_PUBLIC_SUPABASE_URL: hasUrl ? "present" : "missing",
-    NEXT_PUBLIC_SUPABASE_ANON_KEY: hasKey ? "present" : "missing",
-    env: process.env.NODE_ENV,
-  });
+  const { data, error } = await supabase
+    .from("products")
+    .select("id,title,price_cents,variety,producer_id")
+    .limit(50);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  const items = (data ?? []).map(p => ({
+    id: p.id,
+    title: p.title,
+    price: (p.price_cents ?? 0) / 100,
+    variety: p.variety,
+    producerId: p.producer_id,
+  }));
+  return NextResponse.json(items);
 }
