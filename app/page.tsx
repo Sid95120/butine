@@ -168,7 +168,27 @@ function ProductCard({ p }: { p: typeof products[number] }) {
   );
 }
 
+
+type ProductUI = typeof products[number];
+
+function useProductsFromApi() {
+  const [prod, setProd] = useState<ProductUI[]>(products); // mocks par défaut
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await fetch("/api/products", { cache: "no-store" });
+        if (!r.ok) return;
+        const json = await r.json();
+        if (Array.isArray(json) && json.length) setProd(json);
+      } catch {}
+    })();
+  }, []);
+  return prod;
+}
+
+
 // --- Screens ---
+
 function ScreenHome() {
   return (
     <div className="space-y-6">
