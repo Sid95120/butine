@@ -222,7 +222,11 @@ function ScreenHome() {
       <div className="space-y-3">
         <h3 className="text-lg font-semibold">Produits populaires</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {products.map((p) => <ProductCard key={p.id} p={p} />)} {/* was: products -> prod */}
+{/* was: products -> prod */}
+{(products ?? []).map((p) => (
+  <ProductCard key={p.id} p={p} />
+))}        
+        
         </div>
       </div>
     </div>
