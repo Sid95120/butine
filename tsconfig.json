@@ -2,16 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]   // <— clé
+      "@/*": ["./*"]    // ← pas de "src"
     },
     "moduleResolution": "Bundler",
     "target": "ES2020",
-    "lib": ["DOM", "ES2020"],
+    "module": "ESNext",
     "jsx": "preserve",
     "strict": true,
-    "allowJs": false,
-    "noEmit": true,
-    "module": "ESNext"
+    "noEmit": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }
